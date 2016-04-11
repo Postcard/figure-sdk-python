@@ -4,8 +4,9 @@ from figure import api_requestor
 class Portrait(object):
 
     @classmethod
-    def get_all_public(cls):
-        return api_requestor.request("GET", "/portraits/public")
+    def get_all_public(cls, place=None):
+        filters = {'place__id': place} if place else None
+        return api_requestor.request("GET", "/portraits/public", filters=filters)
 
     @classmethod
     def get(cls, code):
