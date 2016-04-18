@@ -29,7 +29,7 @@ setup(
     description='Figure SDK for Python',
 
     # The project's main homepage.
-    url='https://github.com/postcard/figure-sdk-python',
+    url='https://github.com/Postcard/figure-sdk-python',
 
     # Author details
     author='Figure',
