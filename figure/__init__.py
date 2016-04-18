@@ -7,14 +7,29 @@ api_base = 'https://api.figuredevices.com'
 
 # Resources
 from figure.resource import (
-    Portrait
+    Photobooth,
+    Place,
+    Event,
+    TicketTemplate,
+    Text,
+    TextVariable,
+    Image,
+    ImageVariable,
+    Portrait,
+    PosterOrder,
+    User,
+    Auth
 )
 
 from figure.error import (
-    APIError,
+    APIConnectionError,
+    BadRequestError,
     AuthenticationError,
-    PortraitDoesNotExist,
-    RateLimitError
+    AuthorizationError,
+    NotFoundError,
+    RateLimitError,
+    InternalServerError,
+    NotAvailableYetError
 )
 
 
