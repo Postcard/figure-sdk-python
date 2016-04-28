@@ -88,10 +88,6 @@ class APIRequestor(object):
         """
         Mechanism for issuing an API call
         """
-
-        print data
-        print files
-
         headers = headers or {}
 
         if self.token:

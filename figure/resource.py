@@ -26,7 +26,7 @@ class APIResource(object):
                 'has invalid ID: %r' % (type(cls).__name__, id), 'id')
         base = cls.class_url()
         extn = urllib.quote_plus(id)
-        return "%s/%s" % (base, extn)
+        return "%s%s/" % (base, extn)
 
 
 class RetrievableAPIResource(APIResource):
@@ -134,6 +134,19 @@ class PosterOrder(RetrievableAPIResource, CreateableAPIResource, ListableAPIReso
                DeletableAPIResource):
     pass
 
+
+class WifiNetwork(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
+               DeletableAPIResource):
+    pass
+
+
+class CodeList(APIResource):
+
+    @classmethod
+    def claim(cls, token=None, **params):
+        requestor = api_requestor.APIRequestor(token)
+        url = 'codelist/claim/'
+        return requestor.request('post', url, **params)
 
 class User(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
                DeletableAPIResource):

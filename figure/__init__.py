@@ -17,6 +17,8 @@ from figure.resource import (
     ImageVariable,
     Portrait,
     PosterOrder,
+    WifiNetwork,
+    CodeList,
     User,
     Auth
 )
