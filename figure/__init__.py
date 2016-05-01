@@ -1,6 +1,6 @@
 
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 token = None
 api_base = 'https://api.figuredevices.com'
@@ -24,6 +24,7 @@ from figure.resource import (
 )
 
 from figure.error import (
+    FigureError,
     APIConnectionError,
     BadRequestError,
     AuthenticationError,
