@@ -116,6 +116,7 @@ class APIRequestor(object):
 
         try:
             response = request_method(abs_url, data=data, files=files, headers=headers)
+            response.encoding = 'utf-8'
         except RequestException:
             raise error.APIConnectionError()
 
