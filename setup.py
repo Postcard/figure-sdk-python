@@ -31,6 +31,8 @@ setup(
     # The project's main homepage.
     url='https://github.com/Postcard/figure-sdk-python',
 
+    download_url='https://github.com/Postcard/figure-sdk-python/archive/v0.1.3.tar.gz',
+
     # Author details
     author='Figure',
     author_email='contact@figuredevices.com',

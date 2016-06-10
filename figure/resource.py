@@ -129,6 +129,12 @@ class Portrait(RetrievableAPIResource, CreateableAPIResource, ListableAPIResourc
         url = '%s/%s' % (cls.class_url(), 'public')
         return requestor.request('get', url, **params)
 
+    @classmethod
+    def resize(cls, code, token, **params):
+        requestor = api_requestor.APIRequestor(token)
+        url = '%s/%s' % (cls.instance_url(code), 'resize')
+        return requestor.request('post', url, **params)
+
 
 class PosterOrder(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
                DeletableAPIResource):
