@@ -130,7 +130,7 @@ class Portrait(RetrievableAPIResource, CreateableAPIResource, ListableAPIResourc
         return requestor.request('get', url, **params)
 
     @classmethod
-    def resize(cls, code, token, **params):
+    def resize(cls, code, token=None, **params):
         requestor = api_requestor.APIRequestor(token)
         url = '%s/%s' % (cls.instance_url(code), 'resize')
         return requestor.request('post', url, **params)
