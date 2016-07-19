@@ -126,7 +126,7 @@ class Portrait(RetrievableAPIResource, CreateableAPIResource, ListableAPIResourc
     @classmethod
     def get_all_public(cls, token=None, **params):
         requestor = api_requestor.APIRequestor(token)
-        url = '%s/%s' % (cls.class_url(), 'public')
+        url = '%s%s' % (cls.class_url(), 'public')
         return requestor.request('get', url, **params)
 
     @classmethod

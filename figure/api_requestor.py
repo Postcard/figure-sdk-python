@@ -31,20 +31,20 @@ class APIRequestor(object):
         headers.update(
             {'Authorization': 'Bearer {:s}'.format(token)})
 
-    def __get(self, url, headers, data=None, files=None):
-        return requests.get(url, headers=headers)
+    def __get(self, url, headers, timeout, data=None, files=None):
+        return requests.get(url, headers=headers, timeout=timeout)
 
-    def __post(self, url, headers, data, files=None):
-        return requests.post(url, data=data, files=files, headers=headers)
+    def __post(self, url, headers, timeout, data, files=None):
+        return requests.post(url, data=data, files=files, headers=headers, timeout=timeout)
 
-    def __put(self, url, headers, data=None, files=None):
-        return requests.put(url, data=data, files=files, headers=headers)
+    def __put(self, url, headers, timeout, data=None, files=None):
+        return requests.put(url, data=data, files=files, headers=headers, timeout=timeout)
 
-    def __patch(self, url, headers, data=None, files=None):
-        return requests.patch(url, data=data, headers=headers)
+    def __patch(self, url, headers, timeout, data=None, files=None):
+        return requests.patch(url, data=data, headers=headers, timeout=timeout)
 
-    def __head(self, url, headers, data=None, files=None):
-        return requests.head(url, headers=headers)
+    def __head(self, url, headers, timeout, data=None, files=None):
+        return requests.head(url, headers=headers, timeout=timeout)
 
 
     def _handle_api_error(self, rbody, rcode):
@@ -84,7 +84,7 @@ class APIRequestor(object):
             raise error.FigureError("Invalid response body from API", rcode, rbody)
         return resp
 
-    def request(self, method, url, data=None, files=None, query=None, headers=None):
+    def request(self, method, url, data=None, files=None, query=None, headers=None, timeout=60):
         """
         Mechanism for issuing an API call
         """
@@ -115,7 +115,7 @@ class APIRequestor(object):
         abs_url = _build_api_url(abs_url, encoded_query)
 
         try:
-            response = request_method(abs_url, data=data, files=files, headers=headers)
+            response = request_method(abs_url, data=data, files=files, headers=headers, timeout=timeout)
             response.encoding = 'utf-8'
         except RequestException:
             raise error.APIConnectionError()
