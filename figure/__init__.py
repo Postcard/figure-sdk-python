@@ -1,6 +1,6 @@
 
 
-__version__ = "0.1.7"
+__version__ = "0.1.8"
 
 token = None
 api_base = 'https://api.figure.co'
