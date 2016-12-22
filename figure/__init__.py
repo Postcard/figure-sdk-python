@@ -3,7 +3,7 @@
 __version__ = "0.1.7"
 
 token = None
-api_base = 'https://api.figuredevices.com'
+api_base = 'https://api.figure.co'
 
 # Resources
 from figure.resource import (
