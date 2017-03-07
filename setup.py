@@ -31,11 +31,11 @@ setup(
     # The project's main homepage.
     url='https://github.com/Postcard/figure-sdk-python',
 
-    download_url='https://github.com/Postcard/figure-sdk-python/archive/v0.1.8.tar.gz',
+    download_url='https://github.com/Postcard/figure-sdk-python/archive/v0.2.0.tar.gz',
 
     # Author details
     author='Figure',
-    author_email='contact@figuredevices.com',
+    author_email='benoit@figure.co',
 
     # Choose your license
     license='MIT',

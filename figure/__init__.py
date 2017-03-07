@@ -1,6 +1,6 @@
 
 
-__version__ = "0.1.8"
+__version__ = "0.2.0"
 
 token = None
 api_base = 'https://api.figure.co'
@@ -17,8 +17,7 @@ from figure.resource import (
     ImageVariable,
     Portrait,
     PosterOrder,
-    WifiNetwork,
-    CodeList,
+    Code,
     User,
     Auth
 )

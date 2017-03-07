@@ -93,6 +93,9 @@ class Event(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, 
 class TicketTemplate(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
             DeletableAPIResource):
 
+    def class_name(cls):
+        return 'ticket_template'
+
     @classmethod
     def preview(cls, id, token=None, **params):
        requestor = api_requestor.APIRequestor(token)
@@ -107,7 +110,9 @@ class Text(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, E
 
 class TextVariable(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
             DeletableAPIResource):
-    pass
+
+    def class_name(cls):
+        return 'text_variable'
 
 
 class Image(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
@@ -117,7 +122,9 @@ class Image(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, 
 
 class ImageVariable(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
             DeletableAPIResource):
-    pass
+
+    def class_name(cls):
+        return 'image_variable'
 
 
 class Portrait(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
@@ -138,21 +145,19 @@ class Portrait(RetrievableAPIResource, CreateableAPIResource, ListableAPIResourc
 
 class PosterOrder(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
                DeletableAPIResource):
-    pass
+
+    def class_name(cls):
+        return 'poster_order'
 
 
-class WifiNetwork(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
-               DeletableAPIResource):
-    pass
-
-
-class CodeList(APIResource):
+class Code(APIResource):
 
     @classmethod
     def claim(cls, token=None, **params):
         requestor = api_requestor.APIRequestor(token)
-        url = 'codelist/claim/'
+        url = 'codes/claim/'
         return requestor.request('post', url, **params)
+
 
 class User(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
                DeletableAPIResource):
