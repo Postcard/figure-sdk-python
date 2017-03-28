@@ -65,6 +65,14 @@ class RateLimitError(FigureError):
         self.type = 'rate_limit_error'
 
 
+class MethodNotAllowedError(FigureError):
+
+    def __init__(self, message=None, status=None, body=None):
+        message = message or u'Method not allowed'
+        super(MethodNotAllowedError, self).__init__(message, status, body)
+        self.type = 'method_not_allowed_error'
+
+
 class InternalServerError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):

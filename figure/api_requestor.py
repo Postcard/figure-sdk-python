@@ -61,6 +61,9 @@ class APIRequestor(object):
         if rcode == 404:
             raise error.NotFoundError(status=rcode, body=rbody)
 
+        if rcode == 405:
+            raise error.MethodNotAllowedError(status=rcode, body=rbody)
+
         if rcode == 429:
             raise error.RateLimitError(status=rcode, body=rbody)
 
@@ -73,7 +76,7 @@ class APIRequestor(object):
         if rcode == 503:
             raise error.APIConnectionError(status=rcode, body=rbody)
 
-        raise error.FigureError(mesage="Something went wrong", status=rcode)
+        raise error.FigureError(message="Something went wrong", status=rcode)
 
     def _interpret_response(self, rbody, rcode):
         if not (200 <= rcode < 300):
