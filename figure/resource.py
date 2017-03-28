@@ -139,7 +139,7 @@ class Portrait(RetrievableAPIResource, CreateableAPIResource, ListableAPIResourc
     @classmethod
     def photoshop_hook(cls, code, token=None, **params):
         requestor = api_requestor.APIRequestor(token)
-        url = '%s%s' % (cls.instance_url(code), 'photoshop_hook')
+        url = '%sphotoshop_hook/' % cls.instance_url(code)
         return requestor.request('post', url, **params)
 
 
