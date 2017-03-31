@@ -1,7 +1,7 @@
 Figure SDK
 ---------
 
-The official [Figure](https://figuredevices.com/) SDK for Python.
+The official [Figure](https://figure.co/) SDK for Python.
 
 Role
 ----
@@ -15,7 +15,9 @@ Install the Figure SDK:
 
 From Source:
 ```
-https://github.com/postcard/figure-sdk-python
+git clone https://github.com/postcard/figure-sdk-python
+cd figure-sdk-python 
+python setup.py install
 ```
 
 From git:
@@ -23,11 +25,11 @@ From git:
 pip install git+https://github.com/postcard/figure-sdk-python.git
 ```
 
-Documentation
-------------
+From PyPi:
+``` 
+pip install figure-sdk
+``` 
 
-Please see [https://figuredevices.com/docs/api/?python](https://figuredevices.com/docs/api/?python) for the most up to
-date documentation.
 
 Platforms
 ---------
@@ -40,7 +42,8 @@ Basic Usage
 ```python
 >>> import figure
 >>> figure.token = "yourtoken"
->>> figure.Portrait.get_all_public()
+>>> data = figure.Portrait.get_all(query={'event__uuid': 'event__uuid', 'last': 10})
+>>> # do something with data
 ...
 ```
 
