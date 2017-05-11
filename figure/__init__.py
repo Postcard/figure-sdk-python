@@ -1,6 +1,6 @@
 
 
-__version__ = "0.2.3"
+__version__ = "0.2.4"
 
 token = None
 api_base = 'https://api.figure.co'
@@ -8,6 +8,7 @@ api_base = 'https://api.figure.co'
 # Resources
 from figure.resource import (
     Photobooth,
+    Printer,
     Place,
     Event,
     TicketTemplate,

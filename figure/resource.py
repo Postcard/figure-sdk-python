@@ -80,6 +80,11 @@ class Photobooth(RetrievableAPIResource, CreateableAPIResource, ListableAPIResou
     pass
 
 
+class Printer(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
+                 DeletableAPIResource):
+    pass
+
+
 class Place(RetrievableAPIResource, CreateableAPIResource, ListableAPIResource, EditableAPIResource,
             DeletableAPIResource):
     pass
