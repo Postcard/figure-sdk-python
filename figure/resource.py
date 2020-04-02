@@ -1,5 +1,5 @@
 
-import urllib
+from urllib.parse import quote_plus
 from figure import api_requestor, error
 
 
@@ -11,7 +11,7 @@ class APIResource(object):
             raise NotImplementedError(
                 'APIResource is an abstract class.  You should perform '
                 'actions on its subclasses (e.g. Portrait, Photobooth)')
-        return str(urllib.quote_plus(cls.__name__.lower()))
+        return str(quote_plus(cls.__name__.lower()))
 
     @classmethod
     def class_url(cls):
@@ -25,7 +25,7 @@ class APIResource(object):
                 'Could not determine which URL to request: %s instance '
                 'has invalid ID: %r' % (type(cls).__name__, id), 'id')
         base = cls.class_url()
-        extn = urllib.quote_plus(id)
+        extn = quote_plus(id)
         return "%s%s/" % (base, extn)
 
 

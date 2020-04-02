@@ -1,7 +1,6 @@
 import requests
 import json
-import urlparse
-import urllib
+from urllib import parse
 from requests.exceptions import RequestException
 
 import figure
@@ -9,12 +8,12 @@ from figure import error
 
 
 def _build_api_url(url, query):
-    scheme, netloc, path, base_query, fragment = urlparse.urlsplit(url)
+    scheme, netloc, path, base_query, fragment = parse.urlsplit(url)
 
     if base_query:
         query = '%s&%s' % (base_query, query)
 
-    return urlparse.urlunsplit((scheme, netloc, path, query, fragment))
+    return parse.urlunsplit((scheme, netloc, path, query, fragment))
 
 
 class APIRequestor(object):
@@ -111,9 +110,9 @@ class APIRequestor(object):
         }
         request_method = METHODS[method.lower()]
 
-        abs_url = urlparse.urljoin(self.api_base, url)
+        abs_url = parse.urljoin(self.api_base, url)
 
-        encoded_query = urllib.urlencode(query or {})
+        encoded_query = parse.urlencode(query or {})
 
         abs_url = _build_api_url(abs_url, encoded_query)
 
