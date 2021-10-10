@@ -15,7 +15,7 @@ class FigureError(Exception):
         return self._message
 
     def __str__(self):
-        return unicode(self).encode('utf-8')
+        return str(self).encode('utf-8')
 
 
 class APIConnectionError(FigureError):
@@ -28,7 +28,7 @@ class APIConnectionError(FigureError):
 class BadRequestError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'Bad Request'
+        message = message or 'Bad Request'
         super(BadRequestError, self).__init__(message, status, body)
         self.type = 'bad_request_error'
 
@@ -36,7 +36,7 @@ class BadRequestError(FigureError):
 class AuthenticationError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'Authentication error'
+        message = message or 'Authentication error'
         super(AuthenticationError, self).__init__(message, status, body)
         self.type = 'authentication_error'
 
@@ -44,7 +44,7 @@ class AuthenticationError(FigureError):
 class AuthorizationError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'Autorization error'
+        message = message or 'Autorization error'
         super(AuthorizationError, self).__init__(message, status, body)
         self.type = 'authorization_error'
 
@@ -52,7 +52,7 @@ class AuthorizationError(FigureError):
 class NotFoundError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'Not found'
+        message = message or 'Not found'
         super(NotFoundError, self).__init__(message, status, body)
         self.type = 'not_found_error'
 
@@ -60,7 +60,7 @@ class NotFoundError(FigureError):
 class RateLimitError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'Too many requests'
+        message = message or 'Too many requests'
         super(RateLimitError, self).__init__(message, status, body)
         self.type = 'rate_limit_error'
 
@@ -68,7 +68,7 @@ class RateLimitError(FigureError):
 class MethodNotAllowedError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'Method not allowed'
+        message = message or 'Method not allowed'
         super(MethodNotAllowedError, self).__init__(message, status, body)
         self.type = 'method_not_allowed_error'
 
@@ -76,7 +76,7 @@ class MethodNotAllowedError(FigureError):
 class InternalServerError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'Internal server error'
+        message = message or 'Internal server error'
         super(InternalServerError, self).__init__(message, status, body)
         self.type = 'internal_server_error'
 
@@ -84,6 +84,6 @@ class InternalServerError(FigureError):
 class NotAvailableYetError(FigureError):
 
     def __init__(self, message=None, status=None, body=None):
-        message = message or u'This resource is not available yet'
+        message = message or 'This resource is not available yet'
         super(NotAvailableYetError, self).__init__(message, status, body)
         self.type = 'not_available_yet_error'
