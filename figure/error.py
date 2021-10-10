@@ -15,7 +15,11 @@ class FigureError(Exception):
         return self._message
 
     def __str__(self):
-        return str(self).encode('utf-8')
+        err = f"{self.__class__.__name__}"
+        if self.http_status: err = f"Error {self.http_status} " + err
+        if self._message: err += f": {self._message}"
+        if self.body: err += f"\n{self.body}"
+        return err
 
 
 class APIConnectionError(FigureError):
